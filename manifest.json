@@ -1,7 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "Legit Extension",
-  "version": "0.1",
+  "name": "Legit Profile Extension",
+  "description": "Makes your social profile looks legit!",
+  "author": "Riza Fahmi",
+  "version": "0.1.0",
   "content_scripts": [
     {
       "matches": [
