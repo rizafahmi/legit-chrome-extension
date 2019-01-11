@@ -1,4 +1,4 @@
-/* global document */
+/* global document, chrome */
 const checkUsername = () => {
   // [x] get username from the page
   let pageUsername = '';

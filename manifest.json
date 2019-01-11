@@ -11,5 +11,18 @@
       ],
       "js": ["content.js"]
     }
-  ]
+  ],
+  "permissions": [
+    "activeTab"
+  ],
+  "browser_action": {
+    "default_icon": "camera.png",
+    "default_title": "Shot and share!"
+  },
+  "background": {
+    "persistent": false,
+    "scripts": [
+      "background.js"
+    ]
+  }
 }
