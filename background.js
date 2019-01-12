@@ -1,26 +1,29 @@
-var id = 100;
+/* global chrome */
 
-chrome.browserAction.onClicked.addListener(function() {
-  chrome.tabs.captureVisibleTab(function(screenshotUrl) {
-    var viewTabUrl = chrome.extension.getURL('screenshot.html?id=' + id++);
-    var targetId = null;
+let id = 100;
+
+chrome.browserAction.onClicked.addListener(() => {
+  chrome.tabs.captureVisibleTab((screenshotUrl) => {
+    id += 1;
+    const viewTabUrl = chrome.extension.getURL(`screenshot.html?id=${id}`);
+    let targetId = null;
 
     chrome.tabs.onUpdated.addListener(function listener(tabId, changedProps) {
-      if (tabId != targetId || changedProps.status != 'complete') return;
+      if (tabId !== targetId || changedProps.status !== 'complete') return;
 
       chrome.tabs.onUpdated.removeListener(listener);
 
-      var views = chrome.extension.getViews();
-      for (var i = 0; i < views.length; i++) {
-        var view = views[i];
-        if (view.location.href == viewTabUrl) {
+      const views = chrome.extension.getViews();
+      for (let i = 0; i < views.length; i += 1) {
+        const view = views[i];
+        if (view.location.href === viewTabUrl) {
           view.setScreenshotUrl(screenshotUrl);
           break;
         }
       }
     });
 
-    chrome.tabs.create({ url: viewTabUrl }, function(tab) {
+    chrome.tabs.create({ url: viewTabUrl }, (tab) => {
       targetId = tab.id;
     });
   });

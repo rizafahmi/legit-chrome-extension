@@ -3,7 +3,7 @@
   "name": "Legit Profile Extension",
   "description": "Makes your social profile looks legit!",
   "author": "Riza Fahmi",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "content_scripts": [
     {
       "matches": [
@@ -16,7 +16,7 @@
     "activeTab"
   ],
   "browser_action": {
-    "default_icon": "camera.png",
+    "default_icon": "legit-icon.png",
     "default_title": "Shot and share!"
   },
   "background": {
